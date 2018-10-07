@@ -34,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.READ_CONTACTS,
     };
 
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        PermissionUtils.validate(this, 0, permissoes);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         };
 
-        ListView listView = (ListView) findViewById(R.id.list);
+        ListView listView = findViewById(R.id.list);
         listView.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, items));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -230,11 +237,5 @@ public class MainActivity extends AppCompatActivity {
         imgView.setImageBitmap(bitmap);
         t.setView(imgView);
         t.show();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        PermissionUtils.validate(this, 0, permissoes);
     }
 }

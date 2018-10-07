@@ -16,7 +16,7 @@ public class MyCustomBrowser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_custom_browser);
 
-        webview = (WebView) findViewById(R.id.webview);
+        webview = findViewById(R.id.webview);
 
         Intent intent = getIntent();
 
